@@ -28,10 +28,33 @@ Besvara:
 
 Aktivera miljön och hämta datan vid behov:
 
+### Linux/MacOS
+
 ```bash
 source .venv/bin/activate
 python dag_1/kod/python/download_data.py
 ```
+
+### Windows
+
+Börja med att tillåta körning av scripts i PowerShell:
+
+Om du bara vill tillåta temporärt i det PowerShell-fönstret du ger kommandot (slutar alltså gälla när du stänger fönstret):
+```PowerShell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+```
+
+Om du vill tillåta sripts generellt för din användare:
+```PowerShell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+```PowerShell
+.\.venv\Scripts\activate.ps1
+python dag_1/kod/python/download_data.py
+```
+
+### Samma oavsett OS
 
 ```python
 import pandas as pd

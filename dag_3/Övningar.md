@@ -14,12 +14,37 @@ Klassificera varje fall som regression, klassificering, anomalidetektion eller k
 
 Kör först det färdiga exemplet:
 
+### Linux/MacOS
+
 ```bash
 source .venv/bin/activate
 python dag_3/kod/python/download_data.py
 python dag_3/kod/python/analyze_iot.py dag_3/kod/data/ai4i2020.csv
 python dag_3/kod/python/train_model.py dag_3/kod/output/ai4i_clean.csv
 ```
+
+### Windows
+
+Börja med att tillåta körning av scripts i PowerShell:
+
+Om du bara vill tillåta temporärt i det PowerShell-fönstret du ger kommandot (slutar alltså gälla när du stänger fönstret):
+```PowerShell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+```
+
+Om du vill tillåta sripts generellt för din användare:
+```PowerShell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+```PowerShell
+.\.venv\Scripts\activate.ps1
+python dag_3/kod/python/download_data.py
+python dag_3/kod/python/analyze_iot.py dag_3/kod/data/ai4i2020.csv
+python dag_3/kod/python/train_model.py dag_3/kod/output/ai4i_clean.csv
+```
+
+### Samma oavsett OS
 
 Öppna `model_metrics.json` och besvara:
 
