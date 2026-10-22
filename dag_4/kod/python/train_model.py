@@ -63,6 +63,7 @@ def main() -> None:
         ("classifier", LogisticRegression(max_iter=2_000, class_weight="balanced")),
     ])
     baseline = DummyClassifier(strategy="most_frequent")
+    rule_prediction = (x_test["power_w"] > 9000).astype(int)
 
     model.fit(x_train, y_train)
     baseline.fit(x_train, y_train)
@@ -73,6 +74,8 @@ def main() -> None:
         "test_failure_rate": float(y_test.mean()),
         "model": metrics(y_test, model.predict(x_test)),
         "baseline": metrics(y_test, baseline.predict(x_test)),
+        "rule_description": "Maskinfel om power_w > 9000",
+        "rule_baseline": metrics(y_test, rule_prediction),
         "note": "Feltypskolumnerna TWF/HDF/PWF/OSF/RNF används inte eftersom de läcker målet.",
     }
 
